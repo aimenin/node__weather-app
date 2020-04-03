@@ -6,6 +6,7 @@ const hbs = require('hbs'); // библиотке для создания live-t
 const utils = require('./utils/geocode');
 
 const app = express(); // создаем экспресс приложение
+const port = process.env.PORT || 3000; // запускаем приложение на определнном порте, если оно выложено, или на порте 3000 если оно в разработке
 
 // Определяем пути для Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -92,7 +93,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up on port 3000.');
 });
 
