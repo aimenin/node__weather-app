@@ -8,14 +8,17 @@ document.addEventListener('click', (event) => {
     const location = document.getElementById('location').value;
     const p1 = document.querySelector('.p1');
     const p2 = document.querySelector('.p2');
+    const p3 = document.querySelector('.p3');
 
     p1.textContent = "Loading...";
     p2.textContent = "";
+    p3.textContent = "";
 
     if (location == '') {
         p1.style.cssText = "border-top: 1px solid red;";
         p1.textContent = 'Cant find your place';
         p2.textContent = '';
+        p3.textContent = '';
         return;
     }
 
@@ -25,12 +28,12 @@ document.addEventListener('click', (event) => {
             p1.style.cssText = "border-top: 1px solid red;";
             p1.textContent = 'Cant find your place';
             p2.textContent = '';
+            p3.textContent = '';
         } else {
-            console.log(`Forecast: ${data.forecast}`);
-            console.log(`Location: ${data.place}`);
             p1.style.cssText = "border-top: 1px solid green;";
             p1.textContent = data.forecast;
-            p2.textContent = data.place;
+            p2.textContent = `Pressure: ${data.pressure}`;
+            p3.textContent = data.place;
         }
     });
     });

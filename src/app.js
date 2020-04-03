@@ -52,11 +52,12 @@ app.get('/weather', async (req, res) => {
     }
 
     try {
-        const { forecast, place, error } = await utils.currentlyWeather(req.query.address);
+        const { forecast, place, error, pressure } = await utils.currentlyWeather(req.query.address);
         res.send({
             forecast,
             place,
             address: req.query.address,
+            pressure,
             error
         });
     } catch (e) {

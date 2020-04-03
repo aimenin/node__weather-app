@@ -11,6 +11,7 @@ const currentlyWeather = async (city) => {
         return {
             forecast: `${data.daily.summary} It is currently ${data.currently.temperature} degrees out. There is a ${data.currently.precipProbability}% chance of rain`,
             place,
+            pressure: data.currently.pressure,
             error: false
         }
     } catch (e) {
